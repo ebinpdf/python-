@@ -1,0 +1,72 @@
+6
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+a, b = num1, num2
+while b:
+    a, b = b, a % b
+gcd = a 
+lcm = (num1 * num2) // gcd
+ 
+print("The GCD of", num1, "and", num2, "is:", gcd)
+print("The LCM of", num1, "and", num2, "is:", lcm)
+
+
+
+7
+try:
+    with open('input.txt', 'r') as input_file, open('output.txt', 'w') as output_file:
+        input_data = input_file.read()
+        output_data = input_data.upper()
+        output_file.write(output_data)
+    print('File contents copied and converted to upper case successfully!')
+except FileNotFoundError:
+    print('Input file not found!')
+except:
+    print('An error occurred while processing the file!')
+    
+
+
+8
+n = float(input("Enter a number: ")) 
+low, high = 0, n
+precision = 0.00001 
+while high - low > precision:
+    mid = (low + high) / 2
+    if mid**2 > n:
+        high = mid
+    else:
+        low = mid
+print("Square root of", n, "is approximately", low)
+
+
+9
+import tkinter as tk 
+def login():
+    print(f"Username: {username.get()}")
+    print(f"Password: {password.get()}")
+root = tk.Tk()
+root.geometry("200x120") 
+username_label = tk.Label(root, text="Username:")
+username_label.pack()
+username = tk.Entry(root)
+username.pack() 
+password_label = tk.Label(root, text="Password:")
+password_label.pack() 
+password = tk.Entry(root, show="*")
+password.pack()
+login_button = tk.Button(root, text="Login", command=login)
+login_button.pack(pady=10)
+root.mainloop()
+
+
+
+10
+import matplotlib.pyplot as plt
+import numpy as np 
+x = np.arange(-5, 6)
+y = x**2
+plt.plot(x, y)
+plt.title("Plot of x^2")
+plt.xlabel("x-axis")
+plt.ylabel("y-axis")
+plt.show()
