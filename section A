@@ -1,0 +1,91 @@
+1
+numbers = list(
+    map(int, input("Enter a list of numbers separated by spaces: ").split()))
+ 
+largest = numbers[0]
+ 
+for num in numbers:
+    if num > largest:
+        largest = num
+ 
+print("The largest number in the list is:", largest)
+
+
+
+
+2
+def is_perfect(number):
+    return sum(i for i in range(1, number) if number % i == 0) == number
+ 
+n = int(input("Enter the number of perfect numbers to generate: "))
+ 
+count = 0
+number = 1
+ 
+while count < n:
+    if is_perfect(number):
+        print(number)
+        count += 1
+    number += 1
+
+
+
+
+3
+def binary_search(lst, target):
+    low = 0
+    high = len(lst) - 1
+ 
+    while low <= high:
+        mid = (low + high) // 2
+        if lst[mid] == target:
+            return mid
+        elif lst[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+ 
+    return -1
+ 
+lst = input("Enter a sorted list of numbers, separated by spaces: ").split()
+lst = [int(num) for num in lst]
+target = int(input("Enter the number to search for: "))
+ 
+result = binary_search(lst, target)
+ 
+if result == -1:
+    print("Target not found")
+else:
+    print("Target found at index", result)
+
+
+
+
+4
+nums = [int(num) for num in input("Enter a list of numbers separated by spaces: ").split()]
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            return False
+    return True
+ 
+primes = list(filter(lambda num: is_prime(num), nums))
+ 
+print("Prime numbers in the list:", primes)
+
+
+
+5
+def fibonacci(n):
+    return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2)
+ 
+n = int(input("Enter a number: "))
+ 
+fib_series = [fibonacci(i) for i in range(n)]
+ 
+print("First",n ,"Fibonacci numbers are:")
+for num in fib_series:
+    print(num)
